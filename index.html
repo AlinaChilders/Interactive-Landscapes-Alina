@@ -4,10 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interactive Sound Landscape</title>
-    <script src="soundscape.js"></script>
-    <div id="controls">
-      <!-- Adjust Parameters -->
 
+    <!-- Image and Interactive Zone Setup -->
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #landscape-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #landscape-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+      }
+
+      .clickable {
+        position: absolute;
+        width: 100px; /* The sizing is slightly messed up :/ */
+        height: 100px;
+        background: rgba(
+          255,
+          255,
+          255,
+          0.2
+        ); /* Only visible for testing. CHANGE TO TRANSPARENT! */
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      #controls {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+      }
+
+      #controls label {
+        display: block;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Insert Image and Interactive Zones -->
+    <div id="landscape-container">
+      <img
+        src="Coding_Landscape_Project.png"
+        alt="Landscape"
+        id="landscape-img"
+      />
+      <div class="clickable" id="tree" style="top: 60%; left: 30%"></div>
+      <div class="clickable" id="shrub1" style="top: 55%; left: 85%"></div>
+      <div class="clickable" id="shrub2" style="top: 55%; left: 10%"></div>
+      <div class="clickable" id="lake" style="top: 75%; left: 60%"></div>
+      <div class="clickable" id="mountain" style="top: 45%; left: 45%"></div>
+      <div class="clickable" id="star" style="top: 15%; left: 45%"></div>
+    </div>
+
+    <!-- Sound Controls and Panel -->
+    <div id="controls">
       <label>Volume</label>
       <input
         type="range"
@@ -38,16 +108,6 @@
         value="0.2"
       />
 
-      <label>Feedback</label>
-      <input
-        type="range"
-        id="distortion-slider"
-        min="0"
-        max="1"
-        step="0.01"
-        value="0.3"
-      />
-
       <label>Distortion</label>
       <input
         type="range"
@@ -67,17 +127,9 @@
         step="0.01"
         value="0.5"
       />
-
-      <label>Volume</label>
-      <input
-        type="range"
-        id="ring-slider"
-        min="0"
-        max="1"
-        step="0.01"
-        value="0.5"
-      />
     </div>
-  </head>
-  <body></body>
+
+    <!-- Link :) -->
+    <script src="soundscape.js"></script>
+  </body>
 </html>
